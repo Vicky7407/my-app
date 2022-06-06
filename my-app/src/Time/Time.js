@@ -16,7 +16,16 @@ class Time extends Component {
 
     componentDidMount = () => {
 
-        setInterval(() => this.tick(),1000);
+        this.timeI=setInterval(() => this.tick(),1000);
+    }
+    componentDidUpdate = (prevprops,prevstate) => {
+        if(this.state.time!== prevstate.time){
+            console.log("componentDidUpdate")
+        }
+  
+    }
+    componentWillUnmount = () => {
+        clearInterval (this.timeI)
     }
     
     render() {
